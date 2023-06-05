@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input {
+    height: 2rem;
+    padding-inline: 1rem;
+}
+
+.somethingBtn {
+    color: darkslategrey;
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+}
+
+.variable {
+    color: yellow;
+    font-size: 2rem;;
+}
