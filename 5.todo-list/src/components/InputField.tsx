@@ -37,6 +37,10 @@ export const InputField = () => {
     setTodos(updatedTodos);
   };
 
+  const handleReset = () => {
+    setInputValue('');
+  }
+
   return <>
     <section className="input-section">
       <form onSubmit={handleInput}>
@@ -53,7 +57,7 @@ export const InputField = () => {
           </input>
         </label>
         <button className="submitBtn" type="submit">ADD todo</button>
-        <button type="reset">Reset</button>
+        <button type="reset" onClick={handleReset} >Reset</button>
       </form>
     </section>
     {todos.length > 0 ? ( 
