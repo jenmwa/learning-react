@@ -1,0 +1,52 @@
+.todo-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 380px;
+  border: 1px solid #00D8FF;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  text-align: left;
+
+  &.done {
+    background-color: rgb(50, 50, 50);
+    border: 1px solid #0090aa;
+
+    h4,
+    p {
+      text-decoration: line-through;
+    }
+
+    .remove {
+      text-decoration: none;
+    }
+  }
+}
+
+.wrapper1,
+.wrapper2 {
+  display: flex;
+  align-items: center;
+}
+
+.remove {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  margin: 0 0 0 1rem;
+}
+
+input[type="checkbox"] {
+  width: 2rem;
+  height: 2rem;
+  accent-color: #00D8FF;
+  padding: 0;
+  margin: 0 1rem 0 0;
+}
+
+p,
+h4 {
+  margin: 0;
+  padding: 0;
+}
