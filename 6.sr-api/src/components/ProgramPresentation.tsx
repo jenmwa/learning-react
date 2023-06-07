@@ -7,6 +7,10 @@ import '../style/ProgramPresentation.scss'
 export const ProgramPresentation = ({ programs }: ISrResponse) => {
   console.log(programs)
 
+  const gotoSrBtn = (programurl: string) => {
+    console.log(programurl)
+  }
+
   const html = programs.map((program) => {
     return (
       <div className="program-container" key={program.id}>
@@ -22,8 +26,7 @@ export const ProgramPresentation = ({ programs }: ISrResponse) => {
         <p>{program.description}</p>
         <span>{program.broadcastinfo}</span>
         <p>Program-kanal</p>
-          <button
-          //  {program.programurl}
+          <button onClick={() => {gotoSrBtn(program.programurl)}}
           >Gå till programsidan</button>
 
       </div>
