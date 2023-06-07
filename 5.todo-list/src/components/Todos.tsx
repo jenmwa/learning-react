@@ -27,6 +27,7 @@ export const Todos = ({ todos, onTodoChecked, onTodoRemoved }: TodosProps) => {
           <input
             type="checkbox"
             defaultChecked={false}
+            checked={todo.isDone}
             onChange={() => handleChecked(todo.id)}
           />
           <h4>{todo.text}</h4>
