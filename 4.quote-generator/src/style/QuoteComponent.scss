@@ -1,1 +1,30 @@
 //#BE3455
+
+.quote-section {
+border-top: 2px solid #BE3455;
+border-bottom: 2px solid #BE3455;
+max-width: 500px;
+}
+
+.quote-text {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2rem;;
+
+}
+
+.quote-author {
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1rem;
+}
+
+button {
+    margin-top: 2rem;
+
+    &:hover {
+        background: #a12744;
+        color:rgb(255, 255, 255)
+    }
+}

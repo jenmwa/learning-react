@@ -1,7 +1,7 @@
 import '../style/QuoteComponent.scss';
 import { IQuote } from '../Models/IQuote';
 import { useState, useEffect } from 'react';
-import axios from "axios"
+import axios from "axios";
 
 export const QuoteComponent = () => {
 
@@ -30,15 +30,25 @@ export const QuoteComponent = () => {
     setQuote(quotes[randomQuote])
   }
 
+  function todaysDate () {
+    const today = new Date().toLocaleDateString();
+    // const day = today.getDate().toLocaleString();
+    return today;
+  }
+
   return (
     <>
-      <section className='quote-section'></section>
-      <button onClick={() => { setRandomQuote(quotes) }}>GET A NEW QUOTE</button>
-      <h3>
+      <section className='quote-section'>
+        <p>{todaysDate()}</p>
+      <h2>Random Quote for your Day:</h2>
+      <h3 className="quote-text">
         <span>“</span>
         {quote?.text}
         <span>“</span>
-        {quote?.author}
       </h3>
+      <p className="quote-author">{quote?.author ? quote.author : 'Unknown'}</p>
+      </section>
+
+      <button onClick={() => { setRandomQuote(quotes) }}>GET A NEW QUOTE</button>
     </>)
 }
