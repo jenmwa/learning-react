@@ -9,7 +9,6 @@ import { ProgramPresentation } from './ProgramPresentation'
 export const GetApi = () => {
 
   const [response, setResponse] = useState<ISrResponse | undefined>(undefined);
-  const [apiFetched, setApiFetched] = useState(false);
 
   // const [program, setProgram] = useState<IProgram>();
 
@@ -22,7 +21,6 @@ export const GetApi = () => {
       const response = await axios.get<ISrResponse>('https://api.sr.se/api/v2/programs/index?programcategoryid=5&format=json&pagination=false&indent=true')
       console.log(response.data.programs)
       setResponse(response.data)
-      setApiFetched(true);
     } catch (error) {
       console.error('error', error)
     }
@@ -30,7 +28,6 @@ export const GetApi = () => {
 
   const resetBtn = () => {
     console.log('click reset')
-    setApiFetched(false);
     setResponse(undefined);
   }
 
