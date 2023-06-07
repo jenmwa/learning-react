@@ -1,0 +1,36 @@
+.program-container {
+  max-width: 400px;
+  text-align: left;
+  border: 1px solid #6667AB;
+  padding: 1rem;
+  margin: 2rem 0 1rem 0;
+
+  .img-wrapper {
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  h3 {
+    margin-top: 0;
+  }
+
+  span {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+
+  button {
+    background-color: #6667AB;
+    width: 100%;
+    padding: 8px;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: whitesmoke;
+
+  }
+}

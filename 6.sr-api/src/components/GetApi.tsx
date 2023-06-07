@@ -1,18 +1,22 @@
 import '../style/GetApi.scss'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { IProgram } from '../Models/IProgram'
+// import { IProgram } from '../Models/IProgram'
 import { ISrResponse } from '../Models/ISrResponse'
+import { ProgramPresentation } from './ProgramPresentation'
 
 
 export const GetApi = () => {
 
-  const [response, setResponse] = useState<ISrResponse | null> (null);
+  const [response, setResponse] = useState<ISrResponse | undefined>(undefined);
   // const [program, setProgram] = useState<IProgram>();
-
 
   //alla program musik
   //https://api.sr.se/api/v2/programs/index?programcategoryid=5&format=json&pagination=false&indent=true
+
+  const getApiBtn = () => {
+    console.log('click click')
+  }
 
   useEffect(() => {
     const getData = async () => {
@@ -31,12 +35,14 @@ export const GetApi = () => {
 
   return (
     <>
-      Let's get all the programs in the music category!
+      <h2>Let's get all the programs in the music category!</h2>
+      <button onClick={getApiBtn}>CLICK HERE TO GET THEM</button>
       <div className="div-container">
-      {response && (
+      {/* {response && (
         <p>{JSON.stringify(response, null, 2)}</p>
-      )}
+      )} */}
       </div>
+      {response && <ProgramPresentation programs={response?.programs}/>}
     </>
   )
 }
