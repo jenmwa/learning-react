@@ -1,4 +1,5 @@
 import { ICategory } from "./ICategory";
+import { IChannel } from "./IChannel";
 
 export interface IProgram {
   id: number,
@@ -7,6 +8,7 @@ export interface IProgram {
   broadcastinfo: string,
   programurl: string,
   programimage: string,
-  programcategory: ICategory;
+  programcategory: ICategory,
+  channel: IChannel,
 
 }

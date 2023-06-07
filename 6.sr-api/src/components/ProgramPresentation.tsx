@@ -9,6 +9,7 @@ export const ProgramPresentation = ({ programs }: ISrResponse) => {
 
   const gotoSrBtn = (programurl: string) => {
     console.log(programurl)
+    window.open(programurl, '_blank', 'noopener')
   }
 
   const html = programs.map((program) => {
@@ -25,10 +26,10 @@ export const ProgramPresentation = ({ programs }: ISrResponse) => {
         <h3>{program.name}</h3>
         <p>{program.description}</p>
         <span>{program.broadcastinfo}</span>
-        <p>Program-kanal</p>
+        <span>{program.channel.name !== '[No channel]' ? program.channel.name : 'sr.se'}</span>
           <button onClick={() => {gotoSrBtn(program.programurl)}}
           >Gå till programsidan</button>
-
+ 
       </div>
     )
 
