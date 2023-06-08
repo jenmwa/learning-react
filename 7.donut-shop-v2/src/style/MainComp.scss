@@ -1,0 +1,41 @@
+@import './variables.scss';
+
+h1 {
+  font-size: 3rem;
+  text-align: left;
+
+  span {
+    font-family: $secondaryFont;
+    font-size: 3.5rem;
+    color: $amaranth-purple;
+  }
+}
+
+.p {
+  text-align: left;
+}
+
+.donut-article {
+  border: 2px solid black;
+  width: 380px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  img {
+    width: 300px;
+  }
+}
+
+.donut-article:last-child {
+  margin-bottom: 10rem;
+}
+
+.decrease-btn {
+  margin-right: 0.5rem;
+}
+
+.buy-btn {
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  width: 108px;
+}
