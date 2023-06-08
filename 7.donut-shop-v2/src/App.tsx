@@ -10,8 +10,7 @@ function App() {
   return (
     <>
       <HeaderComp></HeaderComp>
-      <MainComp></MainComp>
-
+      <MainComp ></MainComp>
       <FooterComp></FooterComp>
     </>
   )

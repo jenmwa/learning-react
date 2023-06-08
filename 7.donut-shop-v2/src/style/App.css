@@ -1,11 +1,11 @@
-#root {
+#root { 
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-.logo {
+/* .logo {
   height: 2em;
   padding: 0.5em;
   will-change: filter;
@@ -31,12 +31,11 @@
   a:nth-of-type(2) .logo, .logo.donut {
     animation: logo-spin infinite 20s linear;
   }
-}
+} */
+/* 
+@media screen and (min-width: 1024px) {
+  :root { 
+   width: 100%;
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+  }
+} */

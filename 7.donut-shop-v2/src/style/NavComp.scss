@@ -1,4 +1,12 @@
 nav {
     text-align: left;
-    margin-left: 0.7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+@media screen and (min-width: 1024px) {
+    nav {
+        width: 90%
+    }
 }

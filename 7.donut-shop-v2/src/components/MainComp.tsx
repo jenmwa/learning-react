@@ -2,26 +2,18 @@ import '../style/MainComp.scss'
 import { IDonut } from '../Models/IDonut'
 import donuts from '../donuts'
 import { ChangeEvent, useState } from 'react'
+import { ICart } from '../Models/ICart'
+
+
 
 export const MainComp = () => {
-  const [donutAmount, setDonutAmount] = useState<IDonut[]>(donuts) 
-
-  // const donutArray: IDonut[] = donuts;
-
-//   const handleAmountChange = (e: ChangeEvent<HTMLInputElement>, d: IDonut) => {
-//     console.log(e.target.value)
-//     const newAmount = Number(e.target.value);
-//   setDonutAmount((prevDonuts) =>
-//     prevDonuts.map((donut) =>
-//       donut.id === d.id ? { ...donut, amount: newAmount } : donut
-//     )
-//   );
-// };
+  const [donutAmount, setDonutAmount] = useState<IDonut[]>(donuts)
+  const [shopCart, setShopCart] = useState<IDonut[]>([]);
 
   const increaseAmount = (d: IDonut) => {
     setDonutAmount(donuts.map((donut) => {
-      if(donut.id === d.id) {
-        return {...donut, amount: donut.amount++ }
+      if (donut.id === d.id) {
+        return { ...donut, amount: donut.amount++ }
       } else {
         return donut;
       }
@@ -30,35 +22,52 @@ export const MainComp = () => {
 
   const decreaseAmount = (d: IDonut) => {
     setDonutAmount(donuts.map((donut) => {
-      if(donut.id === d.id && donut.amount > 0) {
-        return {...donut, amount: donut.amount-- }
+      if (donut.id === d.id && donut.amount > 0) {
+        return { ...donut, amount: donut.amount-- }
       } else {
         return donut;
       }
     }))
   }
 
+  const calculateTotal = (d: IDonut) => {
+    const totalAmount = d.price * d.amount;
+    return totalAmount;
+  };
+
+  const buyToShopCart = (d: IDonut) => {
+    console.log('click on buy:', d.name)
+    setShopCart(shopCart => [...shopCart ,d])
+  }
 
 
   const html = (
     <>
       {donuts.map((donut: IDonut) => (
+
         <article className="donut-article" key={donut.id}>
-          <div className="img-wrapper">
-            <img src={donut.img} alt={donut.name}></img>
+
+          <div className="donut-upper">
+            <div className="img-wrapper">
+              <img src={donut.img} alt={donut.name}></img>
+            </div>
+            <div className="text-container">
+              <h3 className="donut-heading">{donut.name}</h3>
+              <p className="donut-description">"{donut.description}"</p>
+            </div>
           </div>
-          <div className="text-container">
-            <h3 >{donut.name}</h3>
-            <p>{donut.description}</p>
-            <span>Price: {donut.price} dollars/each</span><br></br>
-            <span>Amount: {donut.amount}</span><br></br>
-            <span>Total: {}</span>
-          </div>
-          <div className="amount-container">
-            <button className="decrease-btn"onClick={() => {decreaseAmount(donut)}}>-</button>
-            {/* <input className="input-amount" type="number" value={donut.amount} onChange={(event) => handleAmountChange(event, donut)}/> */}
-            <button className="increase-btn" onClick={() => {increaseAmount(donut)}}>+</button>
-            <button className="buy-btn">BUY</button>
+          <div className="donut-downer">
+            <div className="button-container">
+              <span>Price: {donut.price} dollars/each</span><br></br>
+              <span>Amount: {donut.amount}</span> donuts<br></br>
+              <span>Total: {calculateTotal(donut)} dollars</span>
+            </div>
+            <div className="amount-container">
+              <button className="decrease-btn" onClick={() => { decreaseAmount(donut) }}>-</button>
+              {/* <input className="input-amount" type="number" value={donut.amount} onChange={(event) => handleAmountChange(event, donut)}/> */}
+              <button className="increase-btn" onClick={() => { increaseAmount(donut) }}>+</button>
+              <button className="buy-btn" onClick={() => {buyToShopCart(donut)}}>BUY</button>
+            </div>
           </div>
         </article>
       ))}
@@ -66,10 +75,11 @@ export const MainComp = () => {
     </>
   )
 
+  console.log(shopCart)
+
   return <>
     <h1>Welcome to the <span>Donut Shop</span>!</h1>
-
-    <div>{html}</div>
+    <div className="main-donut">{html}</div>
 
   </>
 }
