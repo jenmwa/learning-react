@@ -27,7 +27,6 @@ export const GetApi = () => {
     }
     else {
       console.log('click reset')
-      // setRendered(false);
       setApiSuccess(false);
       setResponse(undefined);
     }
