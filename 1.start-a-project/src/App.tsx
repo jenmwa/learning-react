@@ -4,6 +4,7 @@
 import './App.css'
 import HelloWorld from './components/HelloWorld'
 import Counter from './components/Counter'
+import { StateComponent } from './components/StateComponent'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -12,6 +13,7 @@ function App() {
     <>
       <HelloWorld></HelloWorld>
      <Counter></Counter>
+     <StateComponent></StateComponent>
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
