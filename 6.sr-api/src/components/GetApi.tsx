@@ -40,6 +40,7 @@ export const GetApi = () => {
 
   // // rendera från start
   // useEffect(() => {
+  //  if(response.length > 0) return; //slippa oändlighetsloop
   //   const getData = async () => {
   //     try {
   //       const response = await axios.get<ISrResponse>('https://api.sr.se/api/v2/programs/index?programcategoryid=5&format=json&pagination=false&indent=true')
@@ -51,7 +52,8 @@ export const GetApi = () => {
   //     }
   //   }
   //   getData()
-  // }, []);
+  // }, []); //kan lösas såhär men ej reko, dependency array
+  // });
 
   return (
     <>
