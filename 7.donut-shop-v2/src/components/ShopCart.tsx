@@ -12,6 +12,7 @@ export const ShopCart = ({ cartFromParent }: ShopCartCompProps) => {
 
   //kunna radera donuts
   //kunna ändra antal i donuts
+  //IShopCart som interface? implementera så vi har totalamount & total pieces?
 
 
   const html = (
