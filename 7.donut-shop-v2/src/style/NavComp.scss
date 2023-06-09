@@ -3,6 +3,17 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+
+    .header-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+
+        button {
+            width: 50px;
+        }
+    }
 }
 
 @media screen and (min-width: 1024px) {

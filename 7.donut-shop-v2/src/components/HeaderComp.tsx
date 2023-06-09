@@ -2,8 +2,14 @@
 import donutLogo from '/donut.svg'
 import '../style/HeaderComp.scss'
 import { NavComp } from './NavComp'
+import { IDonut } from '../Models/IDonut';
 
-export function App() {
+interface HeaderCompProps {
+  cartFromParent: IDonut[];
+}
+
+const HeaderComp = ({ cartFromParent }: HeaderCompProps) => {
+  console.log(cartFromParent)
 
   return (
     <>
@@ -22,11 +28,11 @@ export function App() {
           </div> */}
         {/* </div> */}
         {/* <div className="header-right"> */}
-        <NavComp></NavComp>
+        <NavComp cartFromParent={cartFromParent}></NavComp>
         {/* </div> */}
       </header>
     </>
   )
 }
 
-export default App
+export default HeaderComp;

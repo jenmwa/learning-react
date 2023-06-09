@@ -1,34 +1,40 @@
 import '../style/MainComp.scss'
 import { IDonut } from '../Models/IDonut'
 import donuts from '../donuts'
-import { ChangeEvent, useState } from 'react'
-import { ICart } from '../Models/ICart'
+import { useState } from 'react'
+
+interface MainCompProps {
+  toShopCart: (cart: IDonut[]) => void;
+}
 
 
-
-export const MainComp = () => {
+export const MainComp = ({ toShopCart }: MainCompProps) => {
   const [donutAmount, setDonutAmount] = useState<IDonut[]>(donuts)
   const [shopCart, setShopCart] = useState<IDonut[]>([]);
 
   const increaseAmount = (d: IDonut) => {
-    setDonutAmount(donuts.map((donut) => {
+    setDonutAmount((prevDonutAmount) =>
+    prevDonutAmount.map((donut) => {
       if (donut.id === d.id) {
-        return { ...donut, amount: donut.amount++ }
+        return { ...donut, amount: donut.amount + 1 };
       } else {
         return donut;
       }
-    }))
-  }
+    })
+  );
+};
 
   const decreaseAmount = (d: IDonut) => {
-    setDonutAmount(donuts.map((donut) => {
+    setDonutAmount((prevDonutAmount) =>
+    prevDonutAmount.map((donut) => {
       if (donut.id === d.id && donut.amount > 0) {
-        return { ...donut, amount: donut.amount-- }
+        return { ...donut, amount: donut.amount - 1 };
       } else {
         return donut;
       }
-    }))
-  }
+    })
+  );
+};
 
   const calculateTotal = (d: IDonut) => {
     const totalAmount = d.price * d.amount;
@@ -38,7 +44,10 @@ export const MainComp = () => {
   const buyToShopCart = (d: IDonut) => {
     console.log('click on buy:', d.name);
     //kolla om id redan finns, plussa på existing!
-    setShopCart(shopCart => [...shopCart ,d])
+    const updatedCart = [...shopCart, d];
+    setShopCart(updatedCart);
+    console.log('shopCart:', shopCart);
+    toShopCart(updatedCart); //pass to parent
   }
 
 
@@ -76,7 +85,7 @@ export const MainComp = () => {
     </>
   )
 
-  console.log(shopCart)
+  console.log('shopCart:', shopCart);
 
   return <>
     <h1>Welcome to the <span>Donut Shop</span>!</h1>
