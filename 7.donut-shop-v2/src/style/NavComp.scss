@@ -1,8 +1,12 @@
+@import '../style/variables.scss';
+
 nav {
     text-align: left;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    border: 1px solid $persian-rose ;
+    position: relative;
 
     .header-right {
         display: flex;

@@ -7,7 +7,7 @@ interface NavCompProps {
   cartFromParent: IDonut[];
 }
 
-export const NavComp = ({cartFromParent}: NavCompProps) => {
+export const NavComp = ({ cartFromParent }: NavCompProps) => {
   console.log(cartFromParent)
 
   const [isShopCartOpen, setIsShopCartOpen] = useState(false);
@@ -15,7 +15,7 @@ export const NavComp = ({cartFromParent}: NavCompProps) => {
   const openCloseShopCart = () => {
     console.log('click to open/close shopCart')
     setIsShopCartOpen(!isShopCartOpen)
-    
+
   }
 
   return (
@@ -28,9 +28,10 @@ export const NavComp = ({cartFromParent}: NavCompProps) => {
           <button onClick={openCloseShopCart} className="material-symbols-outlined shop-cart">
             shopping_bag
           </button>
-          {isShopCartOpen && <ShopCart cartFromParent={cartFromParent} />}
         </div>
+
       </nav>
+      {isShopCartOpen && <ShopCart cartFromParent={cartFromParent} />}
     </>
   )
 }
