@@ -36,14 +36,15 @@ export const MainComp = () => {
   };
 
   const buyToShopCart = (d: IDonut) => {
-    console.log('click on buy:', d.name)
+    console.log('click on buy:', d.name);
+    //kolla om id redan finns, plussa på existing!
     setShopCart(shopCart => [...shopCart ,d])
   }
 
 
   const html = (
     <>
-      {donuts.map((donut: IDonut) => (
+      {donutAmount.map((donut: IDonut) => (
 
         <article className="donut-article" key={donut.id}>
 
