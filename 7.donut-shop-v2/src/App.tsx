@@ -5,6 +5,7 @@ import './style/App.css'
 import { MainComp } from './components/MainComp'
 import { useState } from 'react';
 import { IDonut } from './Models/IDonut';
+import { HeroComp } from './components/HeroComp';
 
 // interface AppProps {
 //   cart: IDonut[];
@@ -22,6 +23,7 @@ function App() {
   return (
     <>
       <HeaderComp cartFromParent={cart} ></HeaderComp>
+      <HeroComp></HeroComp>
       <MainComp toShopCart={callbackForArray}></MainComp>
       <FooterComp></FooterComp>
     </>
