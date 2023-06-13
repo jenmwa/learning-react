@@ -43,11 +43,22 @@ export const MainComp = ({ toShopCart }: MainCompProps) => {
 
   const buyToShopCart = (d: IDonut) => {
     console.log('click on buy:', d.name);
-    //kolla om id redan finns, plussa på existing!
-    const updatedCart = [...shopCart, d];
-    setShopCart(updatedCart);
-    console.log('shopCart:', shopCart);
-    toShopCart(updatedCart); //pass to parent
+    const existingDonut = shopCart.find((donut) => donut.id === d.id);
+    if(existingDonut) {
+      const updatedCart = shopCart.map((donut) => {
+        if(donut.id === d.id) {
+          return { ...donut, amount: donut.amount + d.amount}
+        } else {
+          return donut;
+        }
+      });
+      setShopCart(updatedCart);
+    } else {
+      const updatedCart = [...shopCart, d];
+      setShopCart(updatedCart);
+      console.log('shopCart:', shopCart);
+      toShopCart(updatedCart);
+    }
   }
 
 
