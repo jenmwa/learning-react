@@ -7,7 +7,6 @@ interface MainCompProps {
   toShopCart: (cart: IDonut[]) => void;
 }
 
-
 export const MainComp = ({ toShopCart }: MainCompProps) => {
   const [donutAmount, setDonutAmount] = useState<IDonut[]>(donuts)
   const [shopCart, setShopCart] = useState<IDonut[]>([]);
@@ -45,22 +44,40 @@ export const MainComp = ({ toShopCart }: MainCompProps) => {
     console.log('click on buy:', d.name);
     const existingDonut = shopCart.find((donut) => donut.id === d.id);
     if(existingDonut) {
-      const updatedCart = shopCart.map((donut) => {
-        if(donut.id === d.id) {
-          return { ...donut, amount: donut.amount + d.amount}
-        } else {
-          return donut;
-        }
-      });
-      setShopCart(updatedCart);
+      addExistingAmount(d);
     } else {
       const updatedCart = [...shopCart, d];
       setShopCart(updatedCart);
       console.log('shopCart:', shopCart);
       toShopCart(updatedCart);
     }
+    resetAmount(d);
   }
 
+  const addExistingAmount = (d: IDonut) => {
+    const updatedCart = shopCart.map((donut) => {
+      if(donut.id === d.id) {
+        return { ...donut, amount: donut.amount + d.amount}
+      } else {
+        return donut;
+      }
+    });
+    setShopCart(updatedCart);
+    toShopCart(updatedCart);
+  }
+
+  const resetAmount = (d: IDonut) => {
+    setDonutAmount((prevDonutAmount) =>
+    prevDonutAmount.map((donut) => {
+      if (donut.id === d.id) {
+        return { ...donut, amount: 0 };
+      } else {
+        return donut;
+      }
+    })
+  );
+
+  }
 
   const html = (
     <>
