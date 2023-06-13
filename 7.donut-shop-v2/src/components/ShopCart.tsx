@@ -14,12 +14,14 @@ export const ShopCart = ({ cartFromParent }: ShopCartCompProps) => {
   //kunna radera donuts
   //kunna ändra antal i donuts
   //IShopCart som interface? implementera så vi har totalamount & total pieces?
+  //If inga saker i shopcart, visa Empty ShopCart msg
+  //uppdatering artiklar + antal live från main 
 
 
   const html = (
     <>
       {donutInCart.map((donut) => {
-        return <p className="p-text">donut: {donut.name} Amount: {donut.amount}pieces, price:</p>
+        return <p key={donut.id} className="p-text">donut: {donut.name} Amount: {donut.amount}pieces, price:</p>
       })}
     </>
 
