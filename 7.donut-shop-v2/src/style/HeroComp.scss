@@ -1,0 +1,31 @@
+@import './variables.scss';
+
+.hero-container {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-container {
+    background-size:cover;
+    background-repeat: no-repeat;
+
+  }
+}
+
+@media screen and (min-width: 1288px) {
+  .hero-container {
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-position-y: calc(5% - 100vh);
+  }
+}

@@ -3,6 +3,7 @@ import donutLogo from '/donut.svg'
 import '../style/HeaderComp.scss'
 import { NavComp } from './NavComp'
 import { IDonut } from '../Models/IDonut';
+import { HeroComp } from './HeroComp';
 
 interface HeaderCompProps {
   cartFromParent: IDonut[];
@@ -13,7 +14,7 @@ const HeaderComp = ({ cartFromParent }: HeaderCompProps) => {
 
   return (
     <>
-      <header>
+      <header className="header">
         <div className="logo-container">
             <img src={donutLogo} className="donut" alt="Donut logo" />
         </div>

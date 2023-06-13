@@ -22,7 +22,7 @@ export const NavComp = ({ cartFromParent }: NavCompProps) => {
     <>
       <nav>
         <div>
-          this is the navbar.
+          
         </div>
         <div className="header-right">
           <button onClick={openCloseShopCart} className="material-symbols-outlined shop-cart">
@@ -31,7 +31,7 @@ export const NavComp = ({ cartFromParent }: NavCompProps) => {
         </div>
 
       </nav>
-      {isShopCartOpen && <ShopCart cartFromParent={cartFromParent} />}
+      {isShopCartOpen && <ShopCart className="theShopCart" cartFromParent={cartFromParent} />}
     </>
   )
 }

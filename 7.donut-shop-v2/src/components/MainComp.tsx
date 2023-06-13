@@ -14,27 +14,27 @@ export const MainComp = ({ toShopCart }: MainCompProps) => {
 
   const increaseAmount = (d: IDonut) => {
     setDonutAmount((prevDonutAmount) =>
-    prevDonutAmount.map((donut) => {
-      if (donut.id === d.id) {
-        return { ...donut, amount: donut.amount + 1 };
-      } else {
-        return donut;
-      }
-    })
-  );
-};
+      prevDonutAmount.map((donut) => {
+        if (donut.id === d.id) {
+          return { ...donut, amount: donut.amount + 1 };
+        } else {
+          return donut;
+        }
+      })
+    );
+  };
 
   const decreaseAmount = (d: IDonut) => {
     setDonutAmount((prevDonutAmount) =>
-    prevDonutAmount.map((donut) => {
-      if (donut.id === d.id && donut.amount > 0) {
-        return { ...donut, amount: donut.amount - 1 };
-      } else {
-        return donut;
-      }
-    })
-  );
-};
+      prevDonutAmount.map((donut) => {
+        if (donut.id === d.id && donut.amount > 0) {
+          return { ...donut, amount: donut.amount - 1 };
+        } else {
+          return donut;
+        }
+      })
+    );
+  };
 
   const calculateTotal = (d: IDonut) => {
     const totalAmount = d.price * d.amount;
@@ -76,7 +76,7 @@ export const MainComp = ({ toShopCart }: MainCompProps) => {
               <button className="decrease-btn" onClick={() => { decreaseAmount(donut) }}>-</button>
               {/* <input className="input-amount" type="number" value={donut.amount} onChange={(event) => handleAmountChange(event, donut)}/> */}
               <button className="increase-btn" onClick={() => { increaseAmount(donut) }}>+</button>
-              <button className="buy-btn" onClick={() => {buyToShopCart(donut)}}>BUY</button>
+              <button className="buy-btn" onClick={() => { buyToShopCart(donut) }}>BUY</button>
             </div>
           </div>
         </article>
@@ -88,8 +88,10 @@ export const MainComp = ({ toShopCart }: MainCompProps) => {
   console.log('shopCart:', shopCart);
 
   return <>
-    <h1>Welcome to the <span>Donut Shop</span>!</h1>
-    <div className="main-donut">{html}</div>
+    <main className="main">
+      <h1>Welcome to the <span>Donut Shop</span>!</h1>
+      <div className="main-donut">{html}</div>
+    </main>
 
   </>
 }

@@ -1,5 +1,9 @@
 @import './variables.scss';
 
+.main {
+  margin-top: 80vh;
+}
+
 h1 {
   font-size: 3rem;
   text-align: left;
@@ -17,8 +21,10 @@ h1 {
 }
 
 .donut-article {
-  border: 2px solid black;
+  border: 2px solid $amaranth-purple;
+  background-color: white;
   width: 340px;
+  height: 500px;
   padding: 1rem;
   margin-bottom: 1rem;
   display: flex;
@@ -32,7 +38,7 @@ img {
 }
 
 .donut-article:last-child {
-  margin-bottom: 10rem;
+  margin-bottom: 9rem;
 }
 
 .donut-heading {
@@ -41,7 +47,7 @@ img {
 
 .donut-description {
   margin-top: -1rem;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-style: italic;
 }
 
@@ -59,11 +65,29 @@ img {
   width: 108px;
 }
 
+@media screen and (min-width: 768px) {
+  .main-donut {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem; 
+
+  }
+
+.donut-article {
+  margin-bottom: 0;
+  align-content: space-between;
+
+}
+
+}
+
 @media screen and (min-width: 1024px) {
   .main-donut {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem; 
+    justify-content: center;
+    gap: 4rem; 
 
   }
 

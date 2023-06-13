@@ -1,12 +1,13 @@
 @import '../style/variables.scss';
 
 nav {
+    z-index: 20;
     text-align: left;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    border: 1px solid $persian-rose ;
     position: relative;
+    width: 100%;
 
     .header-right {
         display: flex;
@@ -22,6 +23,6 @@ nav {
 
 @media screen and (min-width: 1024px) {
     nav {
-        width: 90%
+        width: 100%
     }
 }

@@ -52,7 +52,7 @@ const donuts: IDonut[] = [
     id: 5,
     img: lightblue,
     name: 'Lightblue Donut',
-    description: 'Whatever else, we´ll always have our blue skies!',
+    description: 'Blue skies forever.',
     price: 2,
     amount: 0,
   },

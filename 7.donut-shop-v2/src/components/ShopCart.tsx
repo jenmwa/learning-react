@@ -4,6 +4,7 @@ import '../style/ShopCart.scss'
 
 interface ShopCartCompProps {
   cartFromParent: IDonut[];
+  className?: string;
 }
 
 export const ShopCart = ({ cartFromParent }: ShopCartCompProps) => {
