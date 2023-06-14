@@ -1,0 +1,22 @@
+nav {
+    font-family: 'Berkshire Swash', cursive;
+
+}
+
+ul {
+    display: flex;
+   gap: 2rem;
+}
+
+li {
+    list-style: none;
+    font-size: 2rem;;
+}
+
+a {
+    color: whitesmoke;
+}
+
+a:hover {
+    color: lightcyan;
+}
