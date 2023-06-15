@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import './style/navigation.css';
+import '../style/navigation.css';
 
 
 export const Navigation = () => {
 
   return <>
-    the color API
+    <h3 className='rainbow-text'>the color API</h3>
     <nav>
       <ul>
         <li><Link to='/'>Home</Link></li>

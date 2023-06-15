@@ -1,0 +1,22 @@
+
+
+.input-color {
+    -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.input-color::-webkit-color-swatch {
+    border-radius: 15px;
+    border: none;
+  }
+
+  .input-color::-moz-color-swatch {
+    border-radius: 15px;
+    border: none;
+  }

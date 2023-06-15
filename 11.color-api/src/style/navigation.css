@@ -1,0 +1,29 @@
+nav {
+    /* font-family: 'Berkshire Swash', cursive; */
+
+}
+
+.rainbow-text {
+    background-image: linear-gradient(to left, violet , lightblue, lightgreen, lightyellow, orange, lightpink ) ;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.1px whitesmoke; 
+}
+
+ul {
+    display: flex;
+   gap: 2rem;
+}
+
+li {
+    list-style: none;
+    font-size: 2rem;;
+}
+
+a {
+    color: whitesmoke;
+}
+
+a:hover {
+    color: lightcyan;
+}
