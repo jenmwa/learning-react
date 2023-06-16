@@ -5,4 +5,5 @@ export interface IDonut {
   description: string,
   price: number,
   amount: number,
+  totalAmount: number,
 }

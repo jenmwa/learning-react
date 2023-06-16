@@ -15,7 +15,10 @@ export const MainComp = ({ toShopCart }: MainCompProps) => {
     setDonutAmount((prevDonutAmount) =>
       prevDonutAmount.map((donut) => {
         if (donut.id === d.id) {
-          return { ...donut, amount: donut.amount + 1 };
+          const amount = donut.amount + 1;
+          const totalAmount = donut.price * amount;
+          return { ...donut, amount, totalAmount };
+
         } else {
           return donut;
         }
@@ -27,7 +30,9 @@ export const MainComp = ({ toShopCart }: MainCompProps) => {
     setDonutAmount((prevDonutAmount) =>
       prevDonutAmount.map((donut) => {
         if (donut.id === d.id && donut.amount > 0) {
-          return { ...donut, amount: donut.amount - 1 };
+          const amount = donut.amount - 1;
+          const totalAmount = donut.price * amount;
+          return { ...donut, amount, totalAmount };
         } else {
           return donut;
         }
@@ -37,7 +42,7 @@ export const MainComp = ({ toShopCart }: MainCompProps) => {
 
   const calculateTotal = (d: IDonut) => {
     const totalAmount = d.price * d.amount;
-    return totalAmount;
+    return {...d, totalAmount};
   };
 
   const buyToShopCart = (d: IDonut) => {
@@ -70,7 +75,7 @@ export const MainComp = ({ toShopCart }: MainCompProps) => {
     setDonutAmount((prevDonutAmount) =>
     prevDonutAmount.map((donut) => {
       if (donut.id === d.id) {
-        return { ...donut, amount: 0 };
+        return { ...donut, amount: 0, totalAmount: 0, };
       } else {
         return donut;
       }
@@ -98,7 +103,7 @@ export const MainComp = ({ toShopCart }: MainCompProps) => {
             <div className="button-container">
               <span>Price: {donut.price} dollars/each</span><br></br>
               <span>Amount: {donut.amount}</span> donuts<br></br>
-              <span>Total: {calculateTotal(donut)} dollars</span>
+              <span>Total: {donut.totalAmount} dollars</span>
             </div>
             <div className="amount-container">
               <button className="decrease-btn" onClick={() => { decreaseAmount(donut) }}>-</button>

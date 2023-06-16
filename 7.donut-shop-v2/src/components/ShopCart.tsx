@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IDonut } from "../Models/IDonut";
 import '../style/ShopCart.scss'
+import donuts from "../donuts";
 
 interface ShopCartCompProps {
   cartFromParent: IDonut[];
@@ -12,16 +13,40 @@ export const ShopCart = ({ cartFromParent }: ShopCartCompProps) => {
   const [donutInCart, setDonutinCart] = useState<IDonut[]>(cartFromParent)
 
   //kunna radera donuts
-  //kunna ändra antal i donuts
   //IShopCart som interface? implementera så vi har totalamount & total pieces?
   //If inga saker i shopcart, visa Empty ShopCart msg
   //uppdatering artiklar + antal live från main 
+  //själva presentations-donut-diven i egen comp
 
+  const removeDonut = (id: number) => {
+    console.log('remove donut: id', id)
+    console.log(donutInCart);
+    setDonutinCart(donutInCart.filter((donut) => donut.id !== id))
+   
+  }
+
+  const handleBuy = () => {
+    console.log('buy and show buyComp')
+    
+  }
+
+  const resetBuy = () => {
+    console.log('let´s empty the cart!')
+  }
 
   const html = (
     <>
       {donutInCart.map((donut) => {
-        return <p key={donut.id} className="p-text">donut: {donut.name} Amount: {donut.amount}pieces, price:</p>
+        return <div className="cart-donut-wrapper" key={donut.id}>
+            <div className='cart-img-container'>
+            <img className="cart-img" src={donut.img}/>
+            </div>
+             
+              <p  
+            className="cart-p-text">
+              {donut.name} | {donut.amount}pcs | total: ${donut.totalAmount}</p>
+              <button className="material-symbols-outlined cart-remove" onClick={() => removeDonut(donut.id)}>delete_forever</button>
+              </div>
       })}
     </>
 
@@ -32,6 +57,9 @@ export const ShopCart = ({ cartFromParent }: ShopCartCompProps) => {
       <section className="theShopCart">
         <p className="p-text">the shopCart</p>
         <div>{html}</div>
+        <span>Total cart:</span><br></br>
+        <button className='confirm-buy-button' onClick={handleBuy}>BUY</button><br></br>
+        <button className='cart-reset-button' onClick={resetBuy}>Reset</button>
       </section>
     </>
   )
