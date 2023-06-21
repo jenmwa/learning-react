@@ -21,9 +21,10 @@ export const NavComp = ({ cartFromParent }: NavCompProps) => {
   return (
     <>
       <nav>
-        <div>
-          
-        </div>
+        <ul>
+          {/* <li>Our Donuts</li>
+          <li>Contact</li> */}
+        </ul>
         <div className="header-right">
           <button onClick={openCloseShopCart} className="material-symbols-outlined shop-cart">
             shopping_bag
@@ -31,7 +32,8 @@ export const NavComp = ({ cartFromParent }: NavCompProps) => {
         </div>
 
       </nav>
-      {isShopCartOpen && <ShopCart className="theShopCart" cartFromParent={cartFromParent} />}
+      {isShopCartOpen && 
+      <ShopCart className="theShopCart" cartFromParent={cartFromParent} />}
     </>
   )
 }

@@ -49,10 +49,25 @@ img {
   margin-top: -1rem;
   font-size: 1.3rem;
   font-style: italic;
+
+}
+
+.amount-container {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  // gap: 1rem;
 }
 
 .decrease-btn , .increase-btn {
-  font-weight: 4rem;
+  background-color: transparent;
+  border: 4px solid $amaranth-purple;
+  color: $amaranth-purple;
+  font-family: $secondaryFont;
+  font-size: 1em;
+  padding: 0;
+  width: 44px;
+  height: 44px;
 }
 
 .decrease-btn {
@@ -60,8 +75,8 @@ img {
 }
 
 .buy-btn {
-  margin-top: 0.5rem;
-  margin-left: 0.5rem;
+  // margin-top: 0.5rem;
+  margin-left: 2rem;
   width: 108px;
 }
 
