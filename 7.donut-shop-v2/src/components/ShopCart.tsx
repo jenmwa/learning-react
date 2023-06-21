@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IDonut } from "../Models/IDonut";
 import '../style/ShopCart.scss'
-import donuts from "../donuts";
 
 interface ShopCartCompProps {
   cartFromParent: IDonut[];
@@ -10,12 +9,15 @@ interface ShopCartCompProps {
 
 export const ShopCart = ({ cartFromParent }: ShopCartCompProps) => {
   console.log(cartFromParent)
-  const [donutInCart, setDonutinCart] = useState<IDonut[]>(cartFromParent)
+  const [donutInCart, setDonutinCart] = useState<IDonut[]>([]);
 
-  //kunna radera donuts
+  useEffect(() => {
+    setDonutinCart(cartFromParent);
+  }, [cartFromParent]);
+
+
   //IShopCart som interface? implementera så vi har totalamount & total pieces?
   //If inga saker i shopcart, visa Empty ShopCart msg
-  //uppdatering artiklar + antal live från main 
   //själva presentations-donut-diven i egen comp
 
   const removeDonut = (id: number) => {
