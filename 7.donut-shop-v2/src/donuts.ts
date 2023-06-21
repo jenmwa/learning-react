@@ -23,6 +23,7 @@ const donuts: IDonut[] = [
     description: 'I like black coz it´s classy',
     price: 1,
     amount: 0,
+    totalAmount: 0,
   },
   {
     id: 2,
@@ -31,6 +32,7 @@ const donuts: IDonut[] = [
     description: 'A blue day is a good day.',
     price: 2,
     amount: 0,
+    totalAmount: 0,
   },
   {
     id: 3,
@@ -39,6 +41,7 @@ const donuts: IDonut[] = [
     description: 'Chocolate fixes everything.',
     price: 3,
     amount: 0,
+    totalAmount: 0,
   },
   {
     id: 4,
@@ -47,6 +50,7 @@ const donuts: IDonut[] = [
     description: 'Life in green is a life serene.',
     price: 3,
     amount: 0,
+    totalAmount: 0,
   },
   {
     id: 5,
@@ -55,6 +59,7 @@ const donuts: IDonut[] = [
     description: 'Blue skies forever.',
     price: 2,
     amount: 0,
+    totalAmount: 0,
   },
   {
     id: 6,
@@ -63,6 +68,7 @@ const donuts: IDonut[] = [
     description: 'Orange all day.',
     price: 2,
     amount: 0,
+    totalAmount: 0,
   },
   {
     id: 7,
@@ -71,6 +77,7 @@ const donuts: IDonut[] = [
     description: 'Pink never goes out of fashion.',
     price: 1,
     amount: 0,
+    totalAmount: 0,
   },
   {
     id: 8,
@@ -79,6 +86,7 @@ const donuts: IDonut[] = [
     description: 'When I am in love I am purple.',
     price: 4,
     amount: 0,
+    totalAmount: 0,
   },
   {
     id: 9,
@@ -87,6 +95,7 @@ const donuts: IDonut[] = [
     description: 'Red is my confidence.',
     price: 5,
     amount: 0,
+    totalAmount: 0,
   },
   {
     id: 10,
@@ -95,6 +104,7 @@ const donuts: IDonut[] = [
     description: 'Everything looks better in white.',
     price: 3,
     amount: 0,
+    totalAmount: 0,
   },
   {
     id: 11,
@@ -103,6 +113,7 @@ const donuts: IDonut[] = [
     description: 'Yellow is the color of summer.',
     price: 3,
     amount: 0,
+    totalAmount: 0,
   },
   {
     id: 12,
@@ -111,6 +122,7 @@ const donuts: IDonut[] = [
     description: 'When in doubt, just add glitter.',
     price: 7,
     amount: 0,
+    totalAmount: 0,
   },
 
 ]
