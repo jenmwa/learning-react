@@ -2,7 +2,7 @@ import HeaderComp from './components/HeaderComp'
 import FooterComp from './components/FooterComp'
 
 import './style/App.css'
-import { MainComp } from './components/MainComp'
+import { ProductsComp } from './components/ProductsComp'
 import { useState } from 'react';
 import { IDonut } from './Models/IDonut';
 import { HeroComp } from './components/HeroComp';
@@ -25,7 +25,10 @@ function App() {
     <>
       <HeaderComp cartFromParent={cart} ></HeaderComp>
       <HeroComp></HeroComp>
-      <MainComp toShopCart={callbackForArray}></MainComp>
+      <ProductsComp toShopCart={callbackForArray}></ProductsComp>
+      {cart.map((d: IDonut) => (
+        <p>{d.name}{d.amount}</p>
+      ))}
       <BuyComp></BuyComp>
       <FooterComp></FooterComp>
     </>

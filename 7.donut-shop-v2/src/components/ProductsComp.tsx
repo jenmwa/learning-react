@@ -7,7 +7,7 @@ interface MainCompProps {
   toShopCart: (cart: IDonut[]) => void;
 }
 
-export const MainComp = ({ toShopCart }: MainCompProps) => {
+export const ProductsComp = ({ toShopCart }: MainCompProps) => {
   const [donutAmount, setDonutAmount] = useState<IDonut[]>(donuts)
   const [shopCart, setShopCart] = useState<IDonut[]>([]);
 
@@ -40,13 +40,13 @@ export const MainComp = ({ toShopCart }: MainCompProps) => {
     );
   };
 
-  const calculateTotal = (d: IDonut) => {
-    const totalAmount = d.price * d.amount;
-    return {...d, totalAmount};
-  };
-
   const buyToShopCart = (d: IDonut) => {
     console.log('click on buy:', d.name);
+
+    if (d.amount === 0) {
+      d = { ...d, amount: 1, totalAmount: d.price}
+    }
+
     const existingDonut = shopCart.find((donut) => donut.id === d.id);
     if(existingDonut) {
       addExistingAmount(d);
@@ -62,7 +62,7 @@ export const MainComp = ({ toShopCart }: MainCompProps) => {
   const addExistingAmount = (d: IDonut) => {
     const updatedCart = shopCart.map((donut) => {
       if(donut.id === d.id) {
-        return { ...donut, amount: donut.amount + d.amount}
+        return { ...donut, amount: donut.amount + d.amount, totalAmount: donut.totalAmount + d.totalAmount}
       } else {
         return donut;
       }
