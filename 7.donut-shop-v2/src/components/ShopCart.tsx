@@ -17,6 +17,7 @@ export const ShopCart = ({ cartFromParent }: ShopCartCompProps) => {
 
 
   //IShopCart som interface? implementera så vi har totalamount & total pieces?
+  //LÄGG TILL: per deafult: 1 pcs - + amount i array
   //Visa total-pieces
   //Visa TotalAmount
   //insert discount-area
