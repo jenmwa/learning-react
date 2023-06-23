@@ -8,7 +8,7 @@ interface NavCompProps {
 }
 
 export const NavComp = ({ cartFromParent }: NavCompProps) => {
-  console.log(cartFromParent)
+  console.log(cartFromParent);
 
   const [isShopCartOpen, setIsShopCartOpen] = useState(false);
 
@@ -27,7 +27,7 @@ export const NavComp = ({ cartFromParent }: NavCompProps) => {
         </ul>
         <div className="header-right">
           <button onClick={openCloseShopCart} className="material-symbols-outlined shop-cart">
-            shopping_bag
+            {isShopCartOpen ? 'close' : 'shopping_bag'}
           </button>
         </div>
 

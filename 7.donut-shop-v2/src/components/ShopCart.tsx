@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { IDonut } from "../Models/IDonut";
 import '../style/ShopCart.scss'
+import { TotalComp } from "./TotalComp";
 
 interface ShopCartCompProps {
   cartFromParent: IDonut[];
@@ -8,11 +9,12 @@ interface ShopCartCompProps {
 }
 
 export const ShopCart = ({ cartFromParent }: ShopCartCompProps) => {
-  console.log(cartFromParent)
+  console.log(cartFromParent);
+
   const [donutInCart, setDonutinCart] = useState<IDonut[]>([]);
 
   useEffect(() => {
-    setDonutinCart(cartFromParent);
+    setDonutinCart([...cartFromParent]);
   }, [cartFromParent]);
 
 
@@ -37,6 +39,7 @@ export const ShopCart = ({ cartFromParent }: ShopCartCompProps) => {
 
   const resetBuy = () => {
     console.log('let´s empty the cart!')
+    setDonutinCart([]);
   }
 
   const html = (
@@ -70,6 +73,7 @@ export const ShopCart = ({ cartFromParent }: ShopCartCompProps) => {
         <div>{html}</div>
         {donutInCart.length !== 0 && (
           <>
+            <TotalComp cartFromParent={cartFromParent}></TotalComp>
             <span>Total cart:</span><br></br>
             <button className='confirm-buy-button' onClick={handleBuy}>BUY</button><br></br>
             <button className='cart-reset-button' onClick={resetBuy}>Reset</button>

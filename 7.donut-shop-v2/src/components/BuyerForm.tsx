@@ -171,7 +171,7 @@ export const BuyerForm = ({ handleSave }: IBuyerFormProps) => {
       <button>Reset</button>
       <button>BUY</button>
     </form>
-    <p>{JSON.stringify(buyer)}</p>
+    {/* <p>{JSON.stringify(buyer)}</p> */}
 
   </>
 
