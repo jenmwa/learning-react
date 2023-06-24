@@ -3,6 +3,7 @@ import '../style/colors.css';
 import axios from "axios";
 import { IApiResponse } from "../Models/IApiResponse";
 import { IColor } from "../Models/IColor";
+import { ColorsPresentation } from "./ColorsPresentation";
 
 //     https://www.thecolorapi.com/scheme?hex=b1ef4f&mode=monochrome&count=6&format=html
 //     https://www.thecolorapi.com/scheme?hex={userInput}&mode=monochrome&count=6&format=html
@@ -20,8 +21,6 @@ export const Colors = () => {
     getApi(userInput);
   }
 
-
-
   const getApi = async (userInput: string) => {
     console.log(userInput);
     userInput = userInput.replace('#', '');
@@ -38,7 +37,7 @@ export const Colors = () => {
         console.log('error:', error)
       }
     }
-   //else resetbtn?
+    //else ?
   }
 
   const getName = (userColor: string) => {
@@ -47,15 +46,24 @@ export const Colors = () => {
     const color = response.find((color) => color.hex.value === userColor);
     console.log(userColor)
     console.log(color)
-      if (color) {
-        console.log(color.name.value)
-       return color.name.value;
-      }
-      return '';
+    if (color) {
+      console.log(color.name.value)
+      return {
+        hex: color.hex.value,
+        name: color.name.value,
+        contrast: color.contrast.value
+      };
     }
+    return {
+      hex: '',
+      name: '',
+      contrast: ''
+    };
+  }
 
   const userColorStyle = {
     backgroundColor: userColor,
+    color: getName(userColor).contrast
   };
 
   const resetBtn = () => {
@@ -63,54 +71,32 @@ export const Colors = () => {
     setResponse([]);
     setApiSuccess(false);
   }
-  
-    const handleClick = (id: string) => {
-      console.log('read more about:', id)
-    }
-
-
-  const html = response.map((color) => (
-    <div key={color.hex.value}>
-      {/* <h4>{color.name.value}</h4> */}
-      <div>
-        <img src={color.image.named} alt={color.name.value} />
-      </div>
-    </div>
-  ));
 
   return (
     <>
-    {userColor == '' && (
-      <>
-      <h2>Choose your color:</h2>
-      <label>
-
-        <input className='input-color' type='color' onChange={handleOnChange}></input>
-      </label><br></br>
-    </>
-    )}
-      {/* <p> I want to write my hex-code instead!</p>
-      <input type="text"></input> */}
-
-      {userColor !== '' && (
+      {userColor == '' && (
         <>
-         <h2>Your color:</h2>
-        <div className='user-color' style={userColorStyle}>
-          <p>{userColor}</p>
-          <p>{getName(userColor)}</p>
-        </div>
-        <button onClick={resetBtn}>New Color</button>
-        {html}
+          <h2>Choose your color:</h2>
+          <label>
+            <input className='input-color' type='color' onChange={handleOnChange}></input>
+          </label>
         </>
       )}
 
 
-      <div>
-        {/* <img src={response?}></img> */}
-      </div>
- 
-      //klick på varje del
-      <div onClick={() => handleClick(userColor)}>Read more about this color...</div>
+      {userColor !== '' && (
+        <>
+        <ColorsPresentation
+          userColor={userColor}
+          userColorStyle={userColorStyle}
+          getName={getName}
+          resetBtn={resetBtn}
+          response={response}
+        />
+
+        </>
+      )}
+
     </>
   )
 
