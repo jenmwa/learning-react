@@ -80,6 +80,10 @@ export const Colors = () => {
           <label>
             <input className='input-color' type='color' onChange={handleOnChange}></input>
           </label>
+          {/* <h3>Or, write in a hex code here:</h3>
+          <label>
+            <input className='input-text' type='text' onChange={handleOnChange}></input>
+          </label> */}
         </>
       )}
 

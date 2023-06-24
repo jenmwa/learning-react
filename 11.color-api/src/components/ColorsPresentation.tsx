@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { IColor } from "../Models/IColor"
 import '../style/colorPresentation.css';
 
@@ -9,11 +10,16 @@ interface ColorsPresentationProps {
     response: IColor[];
 }
 
+//https://www.thecolorapi.com/id?format=json&hex=6F1C35
 
 export const ColorsPresentation = ({userColor, userColorStyle, getName, resetBtn, response }: ColorsPresentationProps) => {
+  const navigate = useNavigate();
 
     const handleClick = (id: string) => {
-        console.log('read more about:', id)
+        console.log('read more about:', id);
+        id = id.replace('#', '')
+        console.log(id)
+        navigate('/color/' + id)
       }
 
     const html = response.map((color) => (

@@ -4,7 +4,7 @@ export const Color = () => {
 
   return (
     <>
-      Color
+      Color 
     </>
   )
 
