@@ -1,7 +1,8 @@
+import { IColor } from "./IColor"
 
 
 export interface IApiResponse {
-    colors: []
+    colors: IColor[],
     image: {
         named: string
     }
