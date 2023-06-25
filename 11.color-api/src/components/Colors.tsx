@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import '../style/colors.css';
 import axios from "axios";
 import { IApiResponse } from "../Models/IApiResponse";
@@ -13,10 +13,14 @@ export const Colors = () => {
   const [userColor, setUserColor] = useState('');
   const [response, setResponse] = useState<IColor[]>([]);
   const [apiSuccess, setApiSuccess] = useState(false);
+  const [colorInputField, setColorInputField] = useState(false)
+
+
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
     const userInput = e.target.value;
+    
     setUserColor(userInput);
     getApi(userInput);
   }
@@ -57,7 +61,7 @@ export const Colors = () => {
     return {
       hex: '',
       name: '',
-      contrast: ''
+      contrast: '',
     };
   }
 
@@ -72,31 +76,53 @@ export const Colors = () => {
     setApiSuccess(false);
   }
 
+  const toggleInputTextColor = () => {
+    setColorInputField(!colorInputField)
+  }
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       {userColor == '' && (
         <>
           <h2>Choose your color:</h2>
-          <label>
-            <input className='input-color' type='color' onChange={handleOnChange}></input>
-          </label>
-          {/* <h3>Or, write in a hex code here:</h3>
-          <label>
-            <input className='input-text' type='text' onChange={handleOnChange}></input>
-          </label> */}
+          <form onSubmit={handleSubmit}>
+            {!colorInputField && (
+              <label>
+                <input className='input-color' type='color' onChange={handleOnChange}></input>
+              </label>
+            )}
+            {colorInputField && (
+              <>
+                <span>Write in a 6 digit hex code here:</span>
+
+                <label>
+                  <input className='input-text' type='text'></input>
+                </label><br></br>
+                <button>Search</button>
+              </>
+            )}
+          </form>
+
+          <div className='input-text-show' onClick={toggleInputTextColor}>
+            <h4>{!colorInputField ? 'I want to write my hex code instead!' : 'I want to visually choose my color instead!'}</h4>
+          </div>
         </>
       )}
 
 
       {userColor !== '' && (
         <>
-        <ColorsPresentation
-          userColor={userColor}
-          userColorStyle={userColorStyle}
-          getName={getName}
-          resetBtn={resetBtn}
-          response={response}
-        />
+          <ColorsPresentation
+            userColor={userColor}
+            userColorStyle={userColorStyle}
+            getName={getName}
+            resetBtn={resetBtn}
+            response={response}
+          />
 
         </>
       )}

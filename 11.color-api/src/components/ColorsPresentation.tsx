@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { IColor } from "../Models/IColor"
 import '../style/colorPresentation.css';
+import { useState } from "react";
 
 interface ColorsPresentationProps {
     userColor: string,
@@ -14,6 +15,7 @@ interface ColorsPresentationProps {
 
 export const ColorsPresentation = ({userColor, userColorStyle, getName, resetBtn, response }: ColorsPresentationProps) => {
   const navigate = useNavigate();
+  const [monochromeScheme, setMonochromeSchema] = useState(false)
 
     const handleClick = (id: string) => {
         console.log('read more about:', id);
@@ -21,6 +23,10 @@ export const ColorsPresentation = ({userColor, userColorStyle, getName, resetBtn
         console.log(id)
         navigate('/color/' + id)
       }
+
+const showMonochrome = () => {
+  setMonochromeSchema(!monochromeScheme)
+}    
 
     const html = response.map((color) => (
         <div key={color.hex.value} onClick={() => handleClick(color.hex.value)} className="color-container">
@@ -38,8 +44,15 @@ export const ColorsPresentation = ({userColor, userColorStyle, getName, resetBtn
             <span className='user-info'>{getName(userColor).name}</span>
           </div>
           <button onClick={resetBtn}>New Color</button>
-          <h4>Show me the color in a monochrome Schema</h4>
+          <div onClick={showMonochrome}>
+            <h4> {!monochromeScheme ? 'Show me the color in a Monochrome Schema' : 'Hide the Monochrome Schema'}</h4>
+          </div>
+          {monochromeScheme && (
+            <>
           {html}
+          </>
+          )
+        }
         </>
     )
 }

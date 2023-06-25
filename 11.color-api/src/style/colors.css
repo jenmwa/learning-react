@@ -21,4 +21,6 @@
     border: none;
   }
 
- 
+ .input-text-show {
+  cursor: pointer;
+ }
