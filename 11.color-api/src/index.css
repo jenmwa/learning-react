@@ -12,16 +12,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 
 
 body {
   margin: 0;
-  display: flex;
+  /* display: flex; */
   /* place-items: center; */
-  justify-content: center;
-  min-width: 320px;
+  /* justify-content: center; */
+  width: 360px;
   min-height: 100vh;
 
 }

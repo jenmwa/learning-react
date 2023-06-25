@@ -38,16 +38,16 @@ const showMonochrome = () => {
 
     return (
         <>
-        <h2>Your color:</h2>
+        <h2>your color:</h2>
           <div className='user-color' style={userColorStyle} onClick={() => handleClick(userColor)}>
             <span className='user-info'>{getName(userColor).hex}</span>
             <span className='user-info'>{getName(userColor).name}</span>
           </div>
           <button onClick={resetBtn}>New Color</button>
           <div onClick={showMonochrome}>
-            <h4> {!monochromeScheme ? 'Show me the color in a Monochrome Schema' : 'Hide the Monochrome Schema'}</h4>
+            <h4> {monochromeScheme ? 'Show me the color in a Monochrome Schema +' : 'Hide the Monochrome Schema -'}</h4>
           </div>
-          {monochromeScheme && (
+          {!monochromeScheme && (
             <>
           {html}
           </>

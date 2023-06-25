@@ -1,28 +1,37 @@
 nav {
-    /* font-family: 'Berkshire Swash', cursive; */
+    font-family: 'Berkshire Swash', cursive;
+    background-image: linear-gradient(to left, violet , lightblue, lightgreen, lightyellow, orange, lightpink ) ;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.1px whitesmoke; 
 
 }
 
 .rainbow-text {
     background-image: linear-gradient(to left, violet , lightblue, lightgreen, lightyellow, orange, lightpink ) ;
-    -webkit-background-clip: text;
+    /* -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 0.1px whitesmoke; 
+    -webkit-text-stroke: 0.1px whitesmoke; */
+    color:  #242424;
 }
 
 ul {
+    margin: 0;
+    padding: 0;
     display: flex;
-   gap: 2rem;
+    justify-content: center;
+    gap: 1rem;
 }
 
 li {
     list-style: none;
-    font-size: 2rem;;
+    font-size: 2rem;
 }
 
 a {
     color: whitesmoke;
     text-underline-offset: 12px;
+    text-decoration: none;
 }
 
 a:hover {
