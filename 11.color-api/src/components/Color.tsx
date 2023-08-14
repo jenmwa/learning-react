@@ -26,9 +26,14 @@ export const Color = () => {
   return (
     <> 
       Color #{id}<br></br>
-      {color?.hex.value}<br></br>
-      {color?.name.value}<br></br>
       <img src={color?.image.named}></img><br></br>
+      name: {color?.name.value}<br></br>
+      hex: {color?.hex.value}<br></br>
+      RGB: {color?.rgb.value}<br></br>
+      HSL: {color?.hsl.value}<br></br>
+      HSV: {color?.hsv.value}<br></br>
+      CMYK: {color?.cmyk.value}<br></br>
+      XYZ: {color?.XYZ.value}<br></br>
     </>
   )
 

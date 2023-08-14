@@ -26,7 +26,14 @@ export const ColorsPresentation = ({userColor, userColorStyle, getName, resetBtn
 
 const showMonochrome = () => {
   setMonochromeSchema(!monochromeScheme)
-}    
+}
+
+const showIcon = monochromeScheme ? (
+  <span className="material-symbols-outlined arrow">expand_more</span>
+) : (
+  <span className="material-symbols-outlined arrow">expand_less</span>
+);
+
 
     const html = response.map((color) => (
         <div key={color.hex.value} onClick={() => handleClick(color.hex.value)} className="color-container">
@@ -44,8 +51,8 @@ const showMonochrome = () => {
             <span className='user-info'>{getName(userColor).name}</span>
           </div>
           <button onClick={resetBtn}>New Color</button>
-          <div onClick={showMonochrome}>
-            <h4> {monochromeScheme ? 'Show me the color in a Monochrome Schema +' : 'Hide the Monochrome Schema -'}</h4>
+          <div className="monochrome-div" onClick={showMonochrome}>
+            <h4 className="monochrome-h4"> {monochromeScheme ? 'Show Monochrome Schema' : 'Hide Monochrome Schema'} {showIcon}</h4>
           </div>
           {!monochromeScheme && (
             <>

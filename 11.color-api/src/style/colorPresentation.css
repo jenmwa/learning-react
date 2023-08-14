@@ -39,3 +39,30 @@
   .color-wrapper:focus {
     border: 4px solid whitesmoke;
   }
+
+  .monochrome-div {
+    border: 1px solid whitesmoke;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    background-color: black;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    /* position: relative; */
+    padding-right: 2rem;;
+  }
+
+  .monochrome-h4 {
+    font-weight: 100;
+    font-family: 'Krub', sans-serif;
+  }
+
+  .arrow {
+    /* padding: 0.5rem; */
+    background-color: whitesmoke;
+    color: #242424;
+    border-radius: 50%;
+   position: absolute;
+   margin-left: 1rem;
+
+  }
