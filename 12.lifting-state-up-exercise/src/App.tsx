@@ -15,6 +15,34 @@ function App() {
     setProjects([...projects, new Project(Date.now(), textFromInput, false, false)])
   }
 
+  const toggleDone = (id: number) => {
+    setProjects(
+      projects.map((project) => {
+        if (project.id === id) {
+          project.isDone = !project.isDone;
+        }
+        return project;
+      })
+    );
+  };
+
+  const handleCheckbox = (id: number) => {
+    setProjects(
+      projects.map((project) => {
+        if(project.id === id) {
+          project.isStarted = !project.isStarted
+        }
+        return project;
+      })
+    )
+  }
+
+  const removeProject = (id: number) => {
+    setProjects(
+      projects.filter((project) => project.id !== id)
+    )
+  }
+
   return (
   <>
     <div>
@@ -22,7 +50,7 @@ function App() {
       <h1>React Projects I want to do</h1>
     </div>
     <AddProjects createProject={addProject}></AddProjects>
-    <Projects projectList={projects}></Projects>
+    <Projects projectList={projects} toggleDone={toggleDone} handleCheckbox={handleCheckbox} removeProject={removeProject}></Projects>
   </>
   )
 }

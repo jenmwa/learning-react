@@ -1,6 +1,38 @@
 .project-div {
     display: flex;
     justify-content: center;
-    justify-content: space-evenly;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 1rem;
+    border: 1px solid lightyellow;
+    border-radius: 12px;
+    padding-inline: 2rem;
+}
+
+.heading {
+    /* text-align: end; */
+    display: flex;
+    justify-content:end;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-inline: 2rem;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.ongoing {
+    font-weight: bold; 
+    color: lightgreen;
+}
+
+button {
+
+    height: 3rem;    
+}
+
+checkbox {
+    width: 2rem;
+    accent-color: lightyellow;
 }
