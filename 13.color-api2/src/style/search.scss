@@ -1,0 +1,29 @@
+.search-div {
+    border: 1px solid lightpink;
+
+    input {
+        margin: 0 1rem 1.75rem 0;
+        height: 2.2rem;
+        border-radius: 6px;
+        border: 1px solid lightgoldenrodyellow;
+    }
+
+    button {
+        color: #1a1a1a;
+        background-color: lightgreen;
+
+        &:disabled {
+            background-color: rgb(159, 189, 159);
+        }
+
+        &:hover {
+            background-color: rgb(115, 140, 115);
+            color: whitesmoke;
+        }
+    }
+}
+
+.your-color-div {
+    border: 1px solid lightpink;
+
+}
