@@ -23,7 +23,7 @@ function App() {
     <h1>Get your color!</h1>
     <SearchField choosenColor={choosenColor}></SearchField>
     <Color color={color}></Color>
-    <ShowColorDetails></ShowColorDetails>
+    <ShowColorDetails color={color}></ShowColorDetails>
     <Monochrome color={color}></Monochrome>
     </>
   )

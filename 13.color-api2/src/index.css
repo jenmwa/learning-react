@@ -35,6 +35,11 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
   font-family: 'Caprasimo', cursive;
+  background-image: linear-gradient(to left, violet , lightblue, lightgreen, lightyellow, orange, lightpink ) ;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.1px whitesmoke;
+    color:  #242424;
 }
 
 button {
