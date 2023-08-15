@@ -22,16 +22,18 @@ export const Monochrome = ({ color }: IColorProps) => {
   }, [colorId])
 
   return <>
-    <p>Monochrome</p>
-    {color}
-    {myColorScheme ? (
-    <div>
-      <img src={myColorScheme.image?.named} />
+    <div className='monochrome-div'>
+      <p>Monochrome</p>
+      <p>note to self: render list instead of img for click to new Your Color</p>
+      {color}
+      {myColorScheme ? (
+        <div>
+          <img src={myColorScheme.image?.named} />
+        </div>
+      ) : (
+        <p>Getting color information...</p>
+      )
+      }
     </div>
-    ) : (
-      <p>Getting color information...</p>
-    )
-    }
-   
   </>
 }
