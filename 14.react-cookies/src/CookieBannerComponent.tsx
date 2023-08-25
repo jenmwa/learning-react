@@ -3,6 +3,7 @@ import { useCookies } from "react-cookie";
 export const CookieBannerComponent = () => {
 
   const [cookies, setCookie, removeCookie] = useCookies(['my-react-cookie']);
+  console.log(cookies)
 
   const acceptCookie = () => {
     const date= new Date();
