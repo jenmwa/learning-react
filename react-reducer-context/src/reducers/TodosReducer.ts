@@ -34,37 +34,73 @@ import { Todo } from "../models/Todo";
 // 	return todos;
 // }
 
-interface IAction {
-	type: string,
-	payload: string
+// interface IAction {
+// 	type: string,
+// 	payload: string
+// }
+
+// export const TodosReducer = (todos: Todo[], action: IAction) => {
+
+// 	if (action.type === 'ADDED') {
+// 		console.log(action, todos)
+
+// 		const newState = [...todos, new Todo(new Date().getTime(), action.payload, false)];
+// 		console.log(newState)
+// 		// return todos;
+// 		// return [...todos, new Todo(new Date().getTime(), action.payload, false) ]
+// 		return newState;
+// 	}
+
+// 	//måste returnera objekten i sin helhet
+// 	if (action.type === 'TOGGLED') {
+// 		return todos.map((todo) => {
+//         if (todo.id === Number(action.payload)) {
+// 			return {...todo, isDone: !todo.isDone }
+// 		}
+//         return todo;
+// 	})
+// 	}
+
+// 	if (action.type === 'REMOVED') {
+// 		return todos.filter((todo) => todo.id !== Number(action.payload));
+// 	}
+
+// 	return todos;
+
+// }
+
+export interface IAction<T>{
+	type: ActionType,
+	payload: T,
 }
 
-export const TodosReducer = (todos: Todo[], action: IAction) => {
+export enum ActionType {
+	ADDED,
+	TOGGLED,
+	REMOVED,
+}
 
-	if (action.type === 'ADDED') {
-		console.log(action, todos)
+export const TodosReducer = <T>(todos: Todo[], action: IAction<T>) => {
 
-		const newState = [...todos, new Todo(new Date().getTime(), action.payload, false)];
-		console.log(newState)
-		// return todos;
-		// return [...todos, new Todo(new Date().getTime(), action.payload, false) ]
-		return newState;
+	if (action.type === ActionType.ADDED ) {
+		const payloadTemporary = action.payload as unknown;
+		const payloadToString = payloadTemporary as string;
+		const newTodo = [...todos, new Todo( new Date().getTime(), payloadToString, false)];
+		return newTodo;
 	}
 
-	//måste returnera objekten i sin helhet
-	if (action.type === 'TOGGLED') {
+	if (action.type === ActionType.TOGGLED) {
 		return todos.map((todo) => {
-        if (todo.id === Number(action.payload)) {
-			return {...todo, isDone: !todo.isDone }
-		}
-        return todo;
-	})
+			if(todo.id === +(action.payload)) {
+				return { ...todo, isDone: !todo.isDone}
+			}
+			return todo;
+		})
 	}
 
-	if (action.type === 'REMOVED') {
-		return todos.filter((todo) => todo.id !== Number(action.payload));
+	if (action.type === ActionType.REMOVED) {
+		return todos.filter((todo) => todo.id !== Number(action.payload))
 	}
 
 	return todos;
-
 }

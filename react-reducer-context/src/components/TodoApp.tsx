@@ -5,7 +5,7 @@ import { Todo } from "../models/Todo";
 import { ITodosContext, TodosContext } from "../contexts/TodosContext";
 import { AddTodo } from "./AddTodo";
 import { Todos } from "./Todos";
-import { TodosReducer } from '../reducers/TodosReducer';
+import { ActionType, IAction, TodosReducer } from '../reducers/TodosReducer';
 
 
 // export const TodoApp = () => {
@@ -58,10 +58,17 @@ export const TodoApp = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     // setTodos([...todos, new Todo(new Date().getTime(), userInput, false)])
-    dispatch({
-      type: 'ADDED',
+    
+    const action: IAction<string> = {
+      type: ActionType.ADDED,
       payload: userInput,
-    })
+    }
+    // dispatch({
+    //   type: ActionType.ADDED,
+    //   payload: userInput,
+    // })
+    dispatch(action)
+
     setUserInput('')
   }
 
@@ -71,20 +78,31 @@ export const TodoApp = () => {
     //     if (todo.id === id) todo.isDone = !todo.isDone;
     //     return todo;
     //   }))
-    dispatch({
-      type: 'TOGGLED',
-      payload: id.toString()
-    })
+    const action: IAction<number> = {
+      type: ActionType.TOGGLED,
+      payload: id,
+    }
+    // dispatch({
+    //   type: ActionType.TOGGLED,
+    //   payload: id.toString()
+    // })
+    dispatch(action)
   }
 
   const removeTodo = (id: number) => {
     // setTodos(
     //   todos.filter((todo) => todo.id !== id)
     // )
-    dispatch({
-      type: 'REMOVED',
-      payload: id.toString()
-    })
+    const action: IAction<number> = {
+      type: ActionType.REMOVED,
+      payload: id,
+    }
+
+    // dispatch({
+    //   type: ActionType.REMOVED,
+    //   payload: id.toString()
+    // })
+    dispatch(action)
   }
 
   return <>
