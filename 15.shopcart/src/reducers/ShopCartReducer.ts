@@ -67,6 +67,8 @@ export const ShopCartReducer = (shopCart: IProducts[], action: IAction) => {
 
   // return shopCart;
 
+  //nedan hela objektet till arrayen
+  // GLÖM EJ: addera amount +1, OM redan exists plussa på. och decreasefunktion.
   if (action.type === ActionType.ADDED) {
     console.log('click on', action.payload)
     const addedProduct = action.payload.products.find((product) => product.id === action.payload.id);
