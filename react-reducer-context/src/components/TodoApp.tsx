@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import '../App.css'
 import { ChangeEvent, FormEvent, useReducer, useState } from "react";
-import { Todo } from "../models/Todo";
-import { ITodosContext, TodosContext } from "../contexts/TodosContext";
-import { AddTodo } from "./AddTodo";
-import { Todos } from "./Todos";
+// import { Todo } from "../models/Todo";
+// import { ITodosContext, TodosContext } from "../contexts/TodosContext";
+// import { AddTodo } from "./AddTodo";
+// import { Todos } from "./Todos";
 import { ActionType, IAction, TodosReducer } from '../reducers/TodosReducer';
+// import { Button } from './Button';
 
 
 // export const TodoApp = () => {
@@ -108,7 +109,7 @@ export const TodoApp = () => {
   return <>
     <form onSubmit={handleSubmit}>
       <input type='text' value={userInput} onChange={(e: ChangeEvent<HTMLInputElement>) => { setUserInput(e.target.value) }}></input>
-      <button>Spara</button>
+      <button><>Spara</></button>
     </form>
     <section>
       <ul>
