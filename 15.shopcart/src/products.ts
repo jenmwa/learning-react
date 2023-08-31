@@ -13,5 +13,11 @@ const products: IProducts[] = [
       price: 2,
       amount: 0,
     },
+    {
+      id: 3,
+      name: 'Red Donut',
+      price: 2,
+      amount: 0,
+    },
 ];
 export default products;
