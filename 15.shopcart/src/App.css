@@ -30,6 +30,10 @@ header {
   position: relative;
 }
 
+.shopcart-div {
+  border: 1px solid lightyellow;
+}
+
 .shopcart-total-amount {
   width: 2rem;
   border-radius: 50%;
@@ -37,7 +41,7 @@ header {
   background-color: aliceblue;
   color: black;
   position: absolute;
-  right: 130px;
+  right: 100px;
   top: -10px;
 }
 
