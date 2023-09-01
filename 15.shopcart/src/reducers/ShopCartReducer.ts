@@ -73,7 +73,7 @@ export const ShopCartReducer = (shopCart: IProducts[], action: IAction) => {
     console.log('click on', action.payload)
     const addedProduct = action.payload.products.find((product) => product.id === action.payload.id);
     if (addedProduct) {
-      return [...shopCart, addedProduct]; // Return a new array with the added product
+      return [...shopCart, addedProduct]; 
     }
   }
   return shopCart;
