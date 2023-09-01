@@ -29,52 +29,81 @@ export interface IAction {
   type: ActionType,
   payload: {
     id: number,
-    products: IProducts[]}
+    products: IProducts[],
+    // amount: number,
+    // totalAmount: number
+  }
 }
 
 export enum ActionType {
+  GOTPRODUCTS,
   ADDED,
   REMOVED,
   CHANGED
 }
 
+const initialState: IProducts[] = [];
 
-export const ShopCartReducer = (shopCart: IProducts[], action: IAction) => {
+export const ShopCartReducer = (shopCart: IProducts[] = initialState, action: IAction) => {
+
 
   // if (action.type === ActionType.ADDED) {
-  //   console.log(action, shopCart)
+  //   console.log('click on', action.payload)
+  //   const addedProduct = action.payload.products.find((product) => product.id === action.payload.id);
+  //   if (addedProduct) {
+  //     const existingDonut = shopCart.find((product) => product.id === action.payload.id);
+  //     if (existingDonut) {
 
-  //   const newState = shopCart.products.map((product) => 
-  //   product.id === action.payload ? {...product, amount: product.amount + 1 } : product
-  //   );
-  //   return new ShopCart(newState)
-
+  //       const updatedCart = shopCart.map((product) => {
+  //         if (product.id === action.payload.id) {
+  //           return {
+  //             ...product, amount: product.amount + action.payload.amount
+  //           }
+  //         } else {
+  //           return product;
+  //         }
+  //       });
+  //       return updatedCart;
+  //     } else {
+  //       return [...shopCart, addedProduct];
+  //     }
+  //   }
+  //   return shopCart;
   // }
-  // return shopCart;
-  // if (action.type === ActionType.ADDED) {
-  //   const existingDonut = shopCart.products.find((donut) => donut.id === action.payload);
-    
-  //   if (existingDonut) {
-  //     const updatedProducts = shopCart.products.map((donut) =>
-  //       donut.id === existingDonut.id ? { ...donut, amount: donut.amount + 1 } : donut
-  //     );
-  //     return new ShopCart(updatedProducts);
-  //   // } else {
-  //   //   const updatedProducts = [...shopCart.products, { ...action.payload, amount: 1 }];
-  //   //   return new ShopCart(updatedProducts);
-  //    }
-  // }
 
-  // return shopCart;
-
-  //nedan hela objektet till arrayen
-  // GLÖM EJ: addera amount +1, OM redan exists plussa på. och decreasefunktion.
   if (action.type === ActionType.ADDED) {
-    console.log('click on', action.payload)
-    const addedProduct = action.payload.products.find((product) => product.id === action.payload.id);
-    if (addedProduct) {
-      return [...shopCart, addedProduct]; 
-    }
+      return handleAddToCart(shopCart, action);
   }
-  return shopCart;
-}
+    else
+      return shopCart;
+};
+
+const handleAddToCart = (shopCart: IProducts[], action: IAction) => {
+  const addedProduct = action.payload.products.find((product) => product.id === action.payload.id);
+  
+  if (!addedProduct) {
+    return shopCart;
+  }
+
+  const existingDonut = shopCart.find((product) => product.id === action.payload.id);
+
+  if (existingDonut) {
+    return addExistingAmount(shopCart, action);
+  } else {
+    return [...shopCart, addedProduct];
+  }
+};
+
+const addExistingAmount = (shopCart: IProducts[], action: IAction) => {
+  const updatedCart = shopCart.map((product) => {
+    if (product.id === action.payload.id) {
+      return {
+        ...product,
+        amount: product.amount + action.payload.amount
+      };
+    } else {
+      return product;
+    }
+  });
+  return updatedCart;
+};
