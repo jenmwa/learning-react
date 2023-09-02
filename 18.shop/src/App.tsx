@@ -36,7 +36,6 @@ function App() {
         <ProductsDispatchContext.Provider value={productsDispatch}>
           <ShopCartContext.Provider value={shopcart}>
             <ShopCartDispatchContext.Provider value={shopCartDispatch}>
-
               <RouterProvider router={router}></RouterProvider>
             </ShopCartDispatchContext.Provider>
           </ShopCartContext.Provider>

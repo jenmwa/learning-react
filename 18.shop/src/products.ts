@@ -1,15 +1,15 @@
-import black from '../public/img/black.jpg';
-import blue from '../public/img/blue.jpg';
-import brown from '../public/img/brown2.jpg';
-import green from '../public/img/green.jpg';
-import lightblue from '../public/img/lightblue.jpg';
-import orange from '../public/img/orange.jpg';
-import pink from '../public/img/pink.jpg';
-import purple from '../public/img/purple.jpg';
-import red from '../public/img/red.jpg';
-import white from '../public/img/white.jpg';
-import yellow from '../public/img/yellow.jpg';
-import lucia from '../public/img/lucia_donut.jpg';
+import black from '/img/black.jpg';
+import blue from '/img/blue.jpg';
+import brown from '/img/brown2.jpg';
+import green from '/img/green.jpg';
+import lightblue from '/img/lightblue.jpg';
+import orange from '/img/orange.jpg';
+import pink from '/img/pink.jpg';
+import purple from '/img/purple.jpg';
+import red from '/img/red.jpg';
+import white from '/img/white.jpg';
+import yellow from '/img/yellow.jpg';
+import lucia from '/img/lucia_donut.jpg';
 
 import { IProduct } from './models/IProduct';
 
@@ -22,7 +22,7 @@ const donuts: IProduct[] = [
     name: 'Black Donut',
     description: 'I like black coz it´s classy',
     price: 1,
-    amount: 0,
+    quantity: 0,
     totalAmount: 0,
   },
   {
@@ -31,7 +31,7 @@ const donuts: IProduct[] = [
     name: 'Blue Donut',
     description: 'A blue day is a good day.',
     price: 2,
-    amount: 0,
+    quantity: 0,
     totalAmount: 0,
   },
   {
@@ -40,7 +40,7 @@ const donuts: IProduct[] = [
     name: 'Brown Donut',
     description: 'Chocolate fixes everything.',
     price: 3,
-    amount: 0,
+    quantity: 0,
     totalAmount: 0,
   },
   {
@@ -49,7 +49,7 @@ const donuts: IProduct[] = [
     name: 'Green Donut',
     description: 'Life in green is a life serene.',
     price: 3,
-    amount: 0,
+    quantity: 0,
     totalAmount: 0,
   },
   {
@@ -58,7 +58,7 @@ const donuts: IProduct[] = [
     name: 'Lightblue Donut',
     description: 'Blue skies forever.',
     price: 2,
-    amount: 0,
+    quantity: 0,
     totalAmount: 0,
   },
   {
@@ -67,7 +67,7 @@ const donuts: IProduct[] = [
     name: 'Orange Donut',
     description: 'Orange all day.',
     price: 2,
-    amount: 0,
+    quantity: 0,
     totalAmount: 0,
   },
   {
@@ -76,7 +76,7 @@ const donuts: IProduct[] = [
     name: 'Pink Donut',
     description: 'Pink never goes out of fashion.',
     price: 1,
-    amount: 0,
+    quantity: 0,
     totalAmount: 0,
   },
   {
@@ -94,7 +94,7 @@ const donuts: IProduct[] = [
     name: 'Red Donut',
     description: 'Red is my confidence.',
     price: 5,
-    amount: 0,
+    quantity: 0,
     totalAmount: 0,
   },
   {
@@ -103,7 +103,7 @@ const donuts: IProduct[] = [
     name: 'White Donut',
     description: 'Everything looks better in white.',
     price: 3,
-    amount: 0,
+    quantity: 0,
     totalAmount: 0,
   },
   {
@@ -112,7 +112,7 @@ const donuts: IProduct[] = [
     name: 'Yellow Donut',
     description: 'Yellow is the color of summer.',
     price: 3,
-    amount: 0,
+    quantity: 0,
     totalAmount: 0,
   },
   {
@@ -121,7 +121,7 @@ const donuts: IProduct[] = [
     name: 'Sparkling Donut',
     description: 'When in doubt, just add glitter.',
     price: 7,
-    amount: 0,
+    quantity: 0,
     totalAmount: 0,
   },
 

@@ -17,6 +17,11 @@ export const Products = () => {
       type: ActionType.ADDED,
       payload: {product}
     })
+    resetAmount(product)
+  }
+
+  const resetAmount = (product: IProduct) => {
+    console.log('let '+ product.name + ' amount be 0 everytime after added')
   }
 
   const html = (
