@@ -43,5 +43,6 @@ export const ShopCartReducer = (shopCart: IShopcart, action: IAction) => {
       totalPrice: updatedTotalPrice,
     };
   }
+  
   return shopCart;
 };

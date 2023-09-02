@@ -11,6 +11,9 @@ import { ShopCartReducer } from './reducers/ShopCartReducer'
 import { ShopCartContext } from './contexts/ShopCartContext'
 import { ShopCartDispatchContext } from './contexts/ShopCartDispatchContext'
 import { IShopcart } from './models/IShopcart'
+import { OpenShopCartContext } from './contexts/OpenShopCartContext'
+import { OpenShopCartDispatchContext } from './contexts/OpenShopCartDispatchContext'
+import { OpenShopCartReducer } from './reducers/OpenShopCartReducer'
 
 function App() {
   const initialShopCart: IShopcart = {
@@ -21,7 +24,7 @@ function App() {
 
   const [products, productsDispatch] = useReducer(ProductsReducer, []);
   const [shopcart, shopCartDispatch] = useReducer(ShopCartReducer, initialShopCart);
-
+  const [isShopCartOpen, isShopCartOpenDispatch] = useReducer(OpenShopCartReducer, false);
 
   useEffect(() => {
     productsDispatch({
@@ -36,7 +39,11 @@ function App() {
         <ProductsDispatchContext.Provider value={productsDispatch}>
           <ShopCartContext.Provider value={shopcart}>
             <ShopCartDispatchContext.Provider value={shopCartDispatch}>
-              <RouterProvider router={router}></RouterProvider>
+              <OpenShopCartContext.Provider value={isShopCartOpen}>
+                <OpenShopCartDispatchContext.Provider value={isShopCartOpenDispatch}>
+                  <RouterProvider router={router}></RouterProvider>
+                </OpenShopCartDispatchContext.Provider>
+              </OpenShopCartContext.Provider>
             </ShopCartDispatchContext.Provider>
           </ShopCartContext.Provider>
         </ProductsDispatchContext.Provider>

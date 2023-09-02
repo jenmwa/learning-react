@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom"
 
+interface IShopCartOpenProps {
+  handleIsShopCartOpen: () => void;
+}
 
-export const Navigation = () => {
+export const Navigation = ({handleIsShopCartOpen}: IShopCartOpenProps) => {
 
   return <>
     <nav>
@@ -9,7 +12,7 @@ export const Navigation = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/products'>Products</Link></li>
         <li><Link to='/about'>About</Link></li>
-        <button className="material-symbols-outlined">local_mall</button>
+        <button className="material-symbols-outlined" onClick={handleIsShopCartOpen}>local_mall</button>
       </ul>
     </nav>
   </>
